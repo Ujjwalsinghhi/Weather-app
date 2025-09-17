@@ -1,4 +1,13 @@
+# Weather Magic 🌦️
+
+This is my weather tracker project built with Next.js and Tailwind CSS.
+
+🌐[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen)](https://weather-tracker-hillly-hilllys-projects.vercel.app/)
+
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+
 
 ## Getting Started
 
