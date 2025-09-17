@@ -1,26 +1,81 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* Base styles and fonts */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply text-white min-h-screen flex items-center justify-center;
+  background: linear-gradient(to bottom, #4facfe, #00f2fe);
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Glassmorphism Card - updated for a cleaner look */
+.card {
+  @apply p-8 rounded-3xl shadow-2xl transition-all duration-500;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+
+/* Enhanced cloud animation */
+.cloud {
+  position: absolute;
+  background: url("https://i.ibb.co/2k8X4mN/cloud.png") no-repeat;
+  background-size: contain;
+  opacity: 0.8;
+  width: 400px;
+  height: 150px;
+  animation: moveClouds linear infinite;
+  z-index: 1; /* To ensure clouds are behind content */
+}
+
+.cloud:nth-child(1) {
+  top: 10%;
+  left: -20%;
+  animation-duration: 90s;
+  animation-delay: 0s;
+  transform: scale(0.8);
+}
+
+.cloud:nth-child(2) {
+  top: 40%;
+  left: -50%;
+  animation-duration: 70s;
+  animation-delay: 20s;
+  transform: scale(1.1);
+}
+
+.cloud:nth-child(3) {
+  top: 60%;
+  left: -30%;
+  animation-duration: 110s;
+  animation-delay: 40s;
+  transform: scale(0.9);
+}
+
+@keyframes moveClouds {
+  from { transform: translateX(-100vw); }
+  to { transform: translateX(200vw); }
+}
+
+/* Animations for content */
+.animate-fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.animate-slide-in-up {
+  animation: slideInUp 1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInUp {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }
